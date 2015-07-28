@@ -12,12 +12,19 @@ import AddressBook
 
 struct City {
     let name: String
+    var countryCode: String? = nil
     
     init?(placemark: CLPlacemark) {
-        guard let cityName = placemark.addressDictionary?[kABPersonAddressCityKey] as? String else {
+        let addressDictionary = placemark.addressDictionary
+        
+        guard let cityName = addressDictionary?[kABPersonAddressCityKey] as? String else {
             return nil
         }
         
         name = cityName
+        
+        if let countryCode = addressDictionary?[kABPersonAddressCountryCodeKey] as? String {
+            self.countryCode = countryCode
+        }
     }
 }

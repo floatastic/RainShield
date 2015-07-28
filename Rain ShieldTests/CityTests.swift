@@ -25,7 +25,7 @@ class CityTests: XCTestCase {
     }
     
     func test_shouldInitialize_givenCityPlacemark() {
-        let placemark = PlacemarkHelper.placemark(PlacemarkHelper.defaultAddressDict)
+        let placemark = PlacemarkHelper.placemark(PlacemarkHelper.defaultAddressDictionary())
         
         if let city = City(placemark: placemark) {
             XCTAssertEqual(city.name, "London")

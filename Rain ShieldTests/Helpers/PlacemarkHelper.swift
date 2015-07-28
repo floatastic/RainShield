@@ -12,13 +12,26 @@ import MapKit
 
 class PlacemarkHelper: NSObject {
     
-    static let defaultAddressDict: [String : String] =
-        [String(kABPersonAddressCityKey) : "London",
-        String(kABPersonAddressCountryCodeKey) : "UK"]
+    private static let defaultCoordinate = CLLocationCoordinate2D(latitude: 10, longitude: 20)
     
     class func placemark(addressDict: [String : String]?) -> CLPlacemark {
+        return MKPlacemark(coordinate: defaultCoordinate, addressDictionary: addressDict)
+    }
+    
+    class func addressDictionary(cityName cityName: String?, countryCode: String?) -> [String : String] {
+        var dictionary = [String : String]()
         
-        return MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 10, longitude: 20), addressDictionary: addressDict)
+        if let cityName = cityName {
+            dictionary[String(kABPersonAddressCityKey)] = cityName
+        }
+        if let countryCode = countryCode {
+            dictionary[String(kABPersonAddressCountryCodeKey)] = countryCode
+        }
         
+        return dictionary
+    }
+    
+    class func defaultAddressDictionary() -> [String : String] {
+        return addressDictionary(cityName: "London", countryCode: "UK")
     }
 }

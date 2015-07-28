@@ -12,7 +12,7 @@ import CoreLocation
 class GeocoderMock: CLGeocoder {
     
     var simulateError = false
-    var placemark: CLPlacemark = PlacemarkHelper.placemark(PlacemarkHelper.defaultAddressDict)
+    var placemark: CLPlacemark = PlacemarkHelper.placemark(PlacemarkHelper.defaultAddressDictionary())
     
     override func reverseGeocodeLocation(location: CLLocation, completionHandler: CLGeocodeCompletionHandler) {
         
