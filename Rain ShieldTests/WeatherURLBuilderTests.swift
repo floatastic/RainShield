@@ -7,14 +7,13 @@
 //
 
 import XCTest
+import CoreLocation
 @testable import Rain_Shield
 
 class WeatherURLBuilderTests: XCTestCase {
 
-    func test_shouldThrow_givenCityWithoutName() {
-        let city = emptyNameCity()
+    func test_shouldThrow_givenNoLocation() {
         let URLBuilder = WeatherURLBuilder()
-        URLBuilder.cityName = city.name
         
         var exceptionThrown = false
         
@@ -28,21 +27,13 @@ class WeatherURLBuilderTests: XCTestCase {
     }
     
     func test_shouldReturnCorrectURL() {
-        let placemark = PlacemarkHelper.placemark(PlacemarkHelper.defaultAddressDictionary())
-        let city = City(placemark: placemark)
+        let location = CLLocation(latitude: 20.0201, longitude: -30.0301)
         
         let URLBuilder = WeatherURLBuilder()
-        URLBuilder.cityName = city!.name
-        URLBuilder.countryCode = city!.countryCode
+        URLBuilder.location = location
         
         let URL = try! URLBuilder.build()
-        XCTAssertEqual(URL.absoluteString, "http://api.openweathermap.org/data/2.5/weather/?q=London,UK&APPID=7d03cbb652c57f6fde3fa54083e613d6")
-    }
-    
-    private func emptyNameCity() -> City {
-        let addressDictionary = PlacemarkHelper.addressDictionary(cityName: "", countryCode: "")
-        let placemark = PlacemarkHelper.placemark(addressDictionary)
-        return City(placemark: placemark)!
+        XCTAssertEqual(URL.absoluteString, "http://api.openweathermap.org/data/2.5/weather/?lat=20.0201&lon=-30.0301&APPID=7d03cbb652c57f6fde3fa54083e613d6&cnt=8")
     }
 
 }

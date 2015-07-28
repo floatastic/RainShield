@@ -14,7 +14,6 @@ import CoreLocation
 class LocationProviderTests: XCTestCase {
     
     var locationManagerMock: LocationManagerMock?
-    var geocoderMock: GeocoderMock?
     var locationProvider: LocationProvider?
     var delegateTester: LocationProviderDelegateTester?
     
@@ -22,8 +21,7 @@ class LocationProviderTests: XCTestCase {
         super.setUp()
         
         locationManagerMock = LocationManagerMock()
-        geocoderMock = GeocoderMock()
-        locationProvider = LocationProvider(locationManager: locationManagerMock!, geocoder: geocoderMock!)
+        locationProvider = LocationProvider(locationManager: locationManagerMock!)
         delegateTester = LocationProviderDelegateTester()
         locationProvider!.delegate = delegateTester
     }
@@ -48,7 +46,6 @@ class LocationProviderTests: XCTestCase {
     
     func test_shouldConfigureDefaultProvider() {
         XCTAssertTrue(locationProvider!.locationManager === locationManagerMock!)
-        XCTAssertTrue(locationProvider!.geocoder === geocoderMock!)
     }
     
     func test_shouldStopUpdatingLocation() {
@@ -71,20 +68,11 @@ class LocationProviderTests: XCTestCase {
         XCTAssertEqual(delegateTester!.receivedError!.code, LocationProviderErrorCode.NoAuthorization.rawValue)
     }
     
-    func test_shouldPassCityToDelegate_givenPlacemark() {
+    func test_shouldPassLocationToDelegate_givenPlacemark() {
         locationManagerMock!.simulateLocationUpdate()
         
         XCTAssertNil(delegateTester!.receivedError)
-        XCTAssertTrue(delegateTester!.updatedCity != nil)
+        XCTAssertNotNil(delegateTester!.updatedLocation)
     }
     
-    func test_shouldPassErrorToDelegate_givenGeocoderError() {
-        geocoderMock!.simulateError = true
-        
-        locationManagerMock!.simulateLocationUpdate()
-        
-        XCTAssertNotNil(delegateTester!.receivedError)
-        XCTAssertEqual(delegateTester!.receivedError!.code, LocationProviderErrorCode.NoCity.rawValue)
-        XCTAssertTrue(delegateTester!.updatedCity == nil)
-    }
 }

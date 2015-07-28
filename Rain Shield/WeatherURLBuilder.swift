@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import CoreLocation
 
 enum WeatherURLBuilderError: ErrorType {
-    case NoCityName
+    case NoLocation
 }
 
 class WeatherURLBuilder: NSObject {
@@ -17,15 +18,18 @@ class WeatherURLBuilder: NSObject {
     private let AppID = "7d03cbb652c57f6fde3fa54083e613d6"
     private let scheme = "http"
     private let host = "api.openweathermap.org"
-    private let path = "/data/2.5/weather/"
-    private let weatherParamName = "q"
+    private let path = "/data/2.5/forecast/"
+    private let latitudeParam = "lat"
+    private let longitudeParam = "lon"
     private let appParamName = "APPID"
     
-    var cityName: String?
-    var countryCode: String?
+    var location: CLLocation?
     
+    /**
+    Attempting to build() without first setting location will throw WeatherURLBuilderError.NoLocation
+    **/
     func build() throws -> NSURL {
-        var query = try cityQueryPart()
+        var query = try locationQueryPart()
         query += "&" + appParamName + "=" + AppID
         
         let components = NSURLComponents()
@@ -37,19 +41,16 @@ class WeatherURLBuilder: NSObject {
         return components.URL!
     }
     
-    func cityQueryPart() throws -> String {
+    func locationQueryPart() throws -> String {
         
-        guard let cityName = cityName where cityName.characters.count > 0 else {
-            throw WeatherURLBuilderError.NoCityName
+        guard let coordinate = location?.coordinate else {
+            throw WeatherURLBuilderError.NoLocation
         }
         
-        var cityQuery = weatherParamName + "=" + cityName
+        var query = latitudeParam + "=" + String(coordinate.latitude) + "&"
+        query += longitudeParam + "=" + String(coordinate.longitude)
         
-        if let countryCode = countryCode {
-            cityQuery += "," + countryCode
-        }
-        
-        return cityQuery
+        return query
     }
 }
 

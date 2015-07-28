@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import CoreLocation
 @testable import Rain_Shield
 
 class LocationProviderDelegateTester: NSObject, LocationProviderDelegate {
     
-    var updatedCity: City?
+    var updatedLocation: CLLocation?
     var receivedError: NSError?
     
-    func locationProvider(locationProvider: LocationProvider, didUpdateCity city: City) {
-        updatedCity = city
+    func locationProvider(locationProvider: LocationProvider, didUpdateLocation location: CLLocation) {
+        updatedLocation = location
     }
     
     func locationProvider(locationProvider: LocationProvider, failedToUpdateWithError error: NSError) {

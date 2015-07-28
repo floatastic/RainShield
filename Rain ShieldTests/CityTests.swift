@@ -11,28 +11,8 @@ import XCTest
 
 class CityTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    func test_shouldNotInitialize_givenNoCityPlacemark() {
-        let placemark = PlacemarkHelper.placemark(nil)
-        
-        if let _ = City(placemark: placemark) {
-            XCTFail()
-        }
-    }
-    
-    func test_shouldInitialize_givenCityPlacemark() {
-        let placemark = PlacemarkHelper.placemark(PlacemarkHelper.defaultAddressDictionary())
-        
-        if let city = City(placemark: placemark) {
-            XCTAssertEqual(city.name, "London")
-            XCTAssertEqual(city.countryCode!, "UK")
-        } else {
-            XCTFail()
-        }
+    func test_shouldInitialize_givenJSON() {
+        //TODO
     }
  
 }
