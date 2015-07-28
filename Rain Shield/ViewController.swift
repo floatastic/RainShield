@@ -8,18 +8,52 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, LocationProviderDelegate {
 
+    @IBOutlet weak var cityLabel: UILabel!
+    
+    var locationProvider: LocationProvider?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        setupLocationProvider()
+        
+        cityLabel.text = NSLocalizedString("rainshield.gettingLocationLabel")
+    }
+    
+    func setupLocationProvider() {
+        let provider = LocationProvider.defaultProvider()
+        provider.delegate = self
+        provider.updateLocation()
+        locationProvider = provider
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: LocationProviderDelegate
+    
+    func locationProvider(locationProvider: LocationProvider, didUpdateCity city: City) {
+        cityLabel.text = city.name
     }
-
-
+    
+    func locationProvider(locationProvider: LocationProvider, failedToUpdateWithError error: NSError) {
+        
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            
+            if error.code == LocationProviderErrorCode.NoAuthorization.rawValue {
+                
+                UIAlertView(title: NSLocalizedString("rainshield.noLocaliztionAccessError.title"),
+                    message: NSLocalizedString("rainshield.noLocaliztionAccessError.message"),
+                    delegate: nil,
+                    cancelButtonTitle: NSLocalizedString("rainshield.noLocaliztionAccessError.button")
+                    ).show()
+            }
+        
+            self.cityLabel.text = NSLocalizedString("rainshield.unableToGetLocationLabel")
+        }
+    }
+    
+    deinit {
+        locationProvider?.stopMonitoring()
+    }
 }
 

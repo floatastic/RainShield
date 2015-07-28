@@ -12,8 +12,17 @@
 		7D21A7131B66C0DE00CF9128 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D21A7111B66C0DE00CF9128 /* Main.storyboard */; };
 		7D21A7151B66C0DE00CF9128 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D21A7141B66C0DE00CF9128 /* Assets.xcassets */; };
 		7D21A7181B66C0DE00CF9128 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D21A7161B66C0DE00CF9128 /* LaunchScreen.storyboard */; };
-		7D21A7231B66C0DE00CF9128 /* Rain_ShieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A7221B66C0DE00CF9128 /* Rain_ShieldTests.swift */; };
 		7D21A72E1B66C0DE00CF9128 /* Rain_ShieldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A72D1B66C0DE00CF9128 /* Rain_ShieldUITests.swift */; };
+		7D21A73D1B66C73100CF9128 /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A73C1B66C73100CF9128 /* LocationProvider.swift */; };
+		7D21A73F1B66C79500CF9128 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D21A73E1B66C79500CF9128 /* CoreLocation.framework */; };
+		7D21A7451B677F5100CF9128 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D21A7471B677F5100CF9128 /* InfoPlist.strings */; };
+		7D21A74A1B677FB200CF9128 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D21A74C1B677FB200CF9128 /* Localizable.strings */; };
+		7D21A7511B6781BC00CF9128 /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A7501B6781BC00CF9128 /* LocalizationHelper.swift */; };
+		7D21A7531B679C6000CF9128 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A7521B679C6000CF9128 /* ErrorHelper.swift */; };
+		7D21A7551B67B25000CF9128 /* LocationProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A7541B67B25000CF9128 /* LocationProviderTests.swift */; };
+		7D21A7581B67B2DF00CF9128 /* LocationManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A7571B67B2DF00CF9128 /* LocationManagerMock.swift */; };
+		7D21A7591B67B3C500CF9128 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D21A73E1B66C79500CF9128 /* CoreLocation.framework */; };
+		7D21A75C1B67BE5900CF9128 /* LocationProviderDelegateTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A75B1B67BE5900CF9128 /* LocationProviderDelegateTester.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +51,19 @@
 		7D21A7171B66C0DE00CF9128 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D21A7191B66C0DE00CF9128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D21A71E1B66C0DE00CF9128 /* Rain ShieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rain ShieldTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D21A7221B66C0DE00CF9128 /* Rain_ShieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rain_ShieldTests.swift; sourceTree = "<group>"; };
 		7D21A7241B66C0DE00CF9128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D21A7291B66C0DE00CF9128 /* Rain ShieldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rain ShieldUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D21A72D1B66C0DE00CF9128 /* Rain_ShieldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rain_ShieldUITests.swift; sourceTree = "<group>"; };
 		7D21A72F1B66C0DE00CF9128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D21A73C1B66C73100CF9128 /* LocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationProvider.swift; path = Models/LocationProvider.swift; sourceTree = "<group>"; };
+		7D21A73E1B66C79500CF9128 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7D21A7461B677F5100CF9128 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7D21A74B1B677FB200CF9128 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7D21A7501B6781BC00CF9128 /* LocalizationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalizationHelper.swift; path = Helpers/LocalizationHelper.swift; sourceTree = "<group>"; };
+		7D21A7521B679C6000CF9128 /* ErrorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
+		7D21A7541B67B25000CF9128 /* LocationProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationProviderTests.swift; sourceTree = "<group>"; };
+		7D21A7571B67B2DF00CF9128 /* LocationManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerMock.swift; sourceTree = "<group>"; };
+		7D21A75B1B67BE5900CF9128 /* LocationProviderDelegateTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationProviderDelegateTester.swift; path = Helpers/LocationProviderDelegateTester.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D21A73F1B66C79500CF9128 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D21A7591B67B3C500CF9128 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +96,7 @@
 		7D21A7011B66C0DE00CF9128 = {
 			isa = PBXGroup;
 			children = (
+				7D21A73E1B66C79500CF9128 /* CoreLocation.framework */,
 				7D21A70C1B66C0DE00CF9128 /* Rain Shield */,
 				7D21A7211B66C0DE00CF9128 /* Rain ShieldTests */,
 				7D21A72C1B66C0DE00CF9128 /* Rain ShieldUITests */,
@@ -97,6 +117,9 @@
 		7D21A70C1B66C0DE00CF9128 /* Rain Shield */ = {
 			isa = PBXGroup;
 			children = (
+				7D21A7421B677E7B00CF9128 /* Localizable */,
+				7D21A74D1B67818700CF9128 /* Helpers */,
+				7D21A73B1B66C6FA00CF9128 /* Models */,
 				7D21A70D1B66C0DE00CF9128 /* AppDelegate.swift */,
 				7D21A70F1B66C0DE00CF9128 /* ViewController.swift */,
 				7D21A7111B66C0DE00CF9128 /* Main.storyboard */,
@@ -110,8 +133,10 @@
 		7D21A7211B66C0DE00CF9128 /* Rain ShieldTests */ = {
 			isa = PBXGroup;
 			children = (
-				7D21A7221B66C0DE00CF9128 /* Rain_ShieldTests.swift */,
+				7D21A75A1B67BE2B00CF9128 /* Helpers */,
+				7D21A7561B67B2A800CF9128 /* Mocks */,
 				7D21A7241B66C0DE00CF9128 /* Info.plist */,
+				7D21A7541B67B25000CF9128 /* LocationProviderTests.swift */,
 			);
 			path = "Rain ShieldTests";
 			sourceTree = "<group>";
@@ -123,6 +148,48 @@
 				7D21A72F1B66C0DE00CF9128 /* Info.plist */,
 			);
 			path = "Rain ShieldUITests";
+			sourceTree = "<group>";
+		};
+		7D21A73B1B66C6FA00CF9128 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D21A73C1B66C73100CF9128 /* LocationProvider.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7D21A7421B677E7B00CF9128 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				7D21A7471B677F5100CF9128 /* InfoPlist.strings */,
+				7D21A74C1B677FB200CF9128 /* Localizable.strings */,
+			);
+			name = Localizable;
+			sourceTree = "<group>";
+		};
+		7D21A74D1B67818700CF9128 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7D21A7501B6781BC00CF9128 /* LocalizationHelper.swift */,
+				7D21A7521B679C6000CF9128 /* ErrorHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		7D21A7561B67B2A800CF9128 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				7D21A7571B67B2DF00CF9128 /* LocationManagerMock.swift */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
+		7D21A75A1B67BE2B00CF9128 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7D21A75B1B67BE5900CF9128 /* LocationProviderDelegateTester.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +295,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D21A74A1B677FB200CF9128 /* Localizable.strings in Resources */,
 				7D21A7181B66C0DE00CF9128 /* LaunchScreen.storyboard in Resources */,
+				7D21A7451B677F5100CF9128 /* InfoPlist.strings in Resources */,
 				7D21A7151B66C0DE00CF9128 /* Assets.xcassets in Resources */,
 				7D21A7131B66C0DE00CF9128 /* Main.storyboard in Resources */,
 			);
@@ -255,6 +324,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D21A7511B6781BC00CF9128 /* LocalizationHelper.swift in Sources */,
+				7D21A73D1B66C73100CF9128 /* LocationProvider.swift in Sources */,
+				7D21A7531B679C6000CF9128 /* ErrorHelper.swift in Sources */,
 				7D21A7101B66C0DE00CF9128 /* ViewController.swift in Sources */,
 				7D21A70E1B66C0DE00CF9128 /* AppDelegate.swift in Sources */,
 			);
@@ -264,7 +336,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D21A7231B66C0DE00CF9128 /* Rain_ShieldTests.swift in Sources */,
+				7D21A75C1B67BE5900CF9128 /* LocationProviderDelegateTester.swift in Sources */,
+				7D21A7551B67B25000CF9128 /* LocationProviderTests.swift in Sources */,
+				7D21A7581B67B2DF00CF9128 /* LocationManagerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +380,24 @@
 				7D21A7171B66C0DE00CF9128 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7D21A7471B677F5100CF9128 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D21A7461B677F5100CF9128 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		7D21A74C1B677FB200CF9128 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D21A74B1B677FB200CF9128 /* en */,
+			);
+			name = Localizable.strings;
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -485,6 +577,7 @@
 				7D21A7341B66C0DE00CF9128 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D21A7351B66C0DE00CF9128 /* Build configuration list for PBXNativeTarget "Rain ShieldTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +586,7 @@
 				7D21A7371B66C0DE00CF9128 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D21A7381B66C0DE00CF9128 /* Build configuration list for PBXNativeTarget "Rain ShieldUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +595,7 @@
 				7D21A73A1B66C0DE00CF9128 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

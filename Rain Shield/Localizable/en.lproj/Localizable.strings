@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Rain Shield
+
+  Created by Kreft, Michal on 28.07.15.
+  Copyright © 2015 kreftmichal. All rights reserved.
+*/
+
+"rainshield.noLocaliztionAccessError.title" = "Error";
+"rainshield.noLocaliztionAccessError.message" = "Rain Shield needs access to location services to give you weather information. Please go to 'Settings -> Rain Shield' and turn on location setting.";
+"rainshield.noLocaliztionAccessError.button" = "OK";
+"rainshield.gettingLocationLabel" = "Getting location...";
+"rainshield.unableToGetLocationLabel" = "Can't get current location :(";
