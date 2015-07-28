@@ -7,11 +7,14 @@
 //
 
 import CoreLocation
+import AddressBook
 import MapKit
 
 class PlacemarkHelper: NSObject {
     
-    static let defaultAddressDict: [String : String] = ["City" : "London"]
+    static let defaultAddressDict: [String : String] =
+        [String(kABPersonAddressCityKey) : "London",
+        String(kABPersonAddressCountryCodeKey) : "UK"]
     
     class func placemark(addressDict: [String : String]?) -> CLPlacemark {
         

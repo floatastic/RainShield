@@ -29,6 +29,7 @@ class CityTests: XCTestCase {
         
         if let city = City(placemark: placemark) {
             XCTAssertEqual(city.name, "London")
+            XCTAssertEqual(city.countryCode!, "UK")
         } else {
             XCTFail()
         }
