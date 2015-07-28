@@ -9,14 +9,6 @@
 import Foundation
 import CoreLocation
 
-struct City {
-    let name: String
-    
-    init(placemark: CLPlacemark) {
-        name = "London"
-    }
-}
-
 /**
 LocationProvider guarantees to call one of it's delegate method after updateLocation() was called.
 */
@@ -120,9 +112,11 @@ private extension LocationProvider {
     func processLocationUpdate(newLocation: CLLocation) {
         geocoder.reverseGeocodeLocation(newLocation) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
             
-            if let placemark = placemarks?.first {
-                let city = City(placemark: placemark)
-                self.delegate?.locationProvider(self, didUpdateCity: city)
+            if let placemark = placemarks?.first,
+                let city = City(placemark: placemark) {
+                    //TODO update tests for empty city case
+                    self.delegate?.locationProvider(self, didUpdateCity: city)
+                    
             } else {
                 let error = NSError(domain: DefaultErrorDomain, code: LocationProviderErrorCode.NoCity.rawValue, userInfo: nil)
                 self.delegate?.locationProvider(self, failedToUpdateWithError: error)

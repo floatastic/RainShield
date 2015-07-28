@@ -24,7 +24,11 @@
 		7D21A7591B67B3C500CF9128 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D21A73E1B66C79500CF9128 /* CoreLocation.framework */; };
 		7D21A75C1B67BE5900CF9128 /* LocationProviderDelegateTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A75B1B67BE5900CF9128 /* LocationProviderDelegateTester.swift */; };
 		7D21A75E1B67CDD500CF9128 /* GeocoderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A75D1B67CDD500CF9128 /* GeocoderMock.swift */; };
-		7D21A7601B67CEBD00CF9128 /* PlacemarkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A75F1B67CEBD00CF9128 /* PlacemarkMock.swift */; };
+		7D21A7621B67D4FF00CF9128 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A7611B67D4FF00CF9128 /* City.swift */; };
+		7D21A7641B67D64600CF9128 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D21A7631B67D64600CF9128 /* AddressBook.framework */; };
+		7D21A7681B67DABC00CF9128 /* CityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A7671B67DABC00CF9128 /* CityTests.swift */; };
+		7DEF25ED1B67E93D00BDC8C5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DEF25EC1B67E93D00BDC8C5 /* MapKit.framework */; };
+		7DEF25EF1B67EA0300BDC8C5 /* PlacemarkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF25EE1B67EA0300BDC8C5 /* PlacemarkHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +71,11 @@
 		7D21A7571B67B2DF00CF9128 /* LocationManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManagerMock.swift; path = Mocks/LocationManagerMock.swift; sourceTree = "<group>"; };
 		7D21A75B1B67BE5900CF9128 /* LocationProviderDelegateTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationProviderDelegateTester.swift; path = Helpers/LocationProviderDelegateTester.swift; sourceTree = "<group>"; };
 		7D21A75D1B67CDD500CF9128 /* GeocoderMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeocoderMock.swift; path = Mocks/GeocoderMock.swift; sourceTree = "<group>"; };
-		7D21A75F1B67CEBD00CF9128 /* PlacemarkMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacemarkMock.swift; path = Mocks/PlacemarkMock.swift; sourceTree = "<group>"; };
+		7D21A7611B67D4FF00CF9128 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = City.swift; path = Models/City.swift; sourceTree = "<group>"; };
+		7D21A7631B67D64600CF9128 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		7D21A7671B67DABC00CF9128 /* CityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTests.swift; sourceTree = "<group>"; };
+		7DEF25EC1B67E93D00BDC8C5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7DEF25EE1B67EA0300BDC8C5 /* PlacemarkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlacemarkHelper.swift; path = Helpers/PlacemarkHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DEF25ED1B67E93D00BDC8C5 /* MapKit.framework in Frameworks */,
+				7D21A7641B67D64600CF9128 /* AddressBook.framework in Frameworks */,
 				7D21A7591B67B3C500CF9128 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +110,8 @@
 		7D21A7011B66C0DE00CF9128 = {
 			isa = PBXGroup;
 			children = (
+				7DEF25EC1B67E93D00BDC8C5 /* MapKit.framework */,
+				7D21A7631B67D64600CF9128 /* AddressBook.framework */,
 				7D21A73E1B66C79500CF9128 /* CoreLocation.framework */,
 				7D21A70C1B66C0DE00CF9128 /* Rain Shield */,
 				7D21A7211B66C0DE00CF9128 /* Rain ShieldTests */,
@@ -141,6 +153,7 @@
 				7D21A7561B67B2A800CF9128 /* Mocks */,
 				7D21A7241B66C0DE00CF9128 /* Info.plist */,
 				7D21A7541B67B25000CF9128 /* LocationProviderTests.swift */,
+				7D21A7671B67DABC00CF9128 /* CityTests.swift */,
 			);
 			path = "Rain ShieldTests";
 			sourceTree = "<group>";
@@ -158,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				7D21A73C1B66C73100CF9128 /* LocationProvider.swift */,
+				7D21A7611B67D4FF00CF9128 /* City.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -185,7 +199,6 @@
 			children = (
 				7D21A7571B67B2DF00CF9128 /* LocationManagerMock.swift */,
 				7D21A75D1B67CDD500CF9128 /* GeocoderMock.swift */,
-				7D21A75F1B67CEBD00CF9128 /* PlacemarkMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -194,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				7D21A75B1B67BE5900CF9128 /* LocationProviderDelegateTester.swift */,
+				7DEF25EE1B67EA0300BDC8C5 /* PlacemarkHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -332,6 +346,7 @@
 			files = (
 				7D21A7511B6781BC00CF9128 /* LocalizationHelper.swift in Sources */,
 				7D21A73D1B66C73100CF9128 /* LocationProvider.swift in Sources */,
+				7D21A7621B67D4FF00CF9128 /* City.swift in Sources */,
 				7D21A7531B679C6000CF9128 /* ErrorHelper.swift in Sources */,
 				7D21A7101B66C0DE00CF9128 /* ViewController.swift in Sources */,
 				7D21A70E1B66C0DE00CF9128 /* AppDelegate.swift in Sources */,
@@ -342,10 +357,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D21A7601B67CEBD00CF9128 /* PlacemarkMock.swift in Sources */,
 				7D21A75C1B67BE5900CF9128 /* LocationProviderDelegateTester.swift in Sources */,
+				7DEF25EF1B67EA0300BDC8C5 /* PlacemarkHelper.swift in Sources */,
 				7D21A7551B67B25000CF9128 /* LocationProviderTests.swift in Sources */,
 				7D21A7581B67B2DF00CF9128 /* LocationManagerMock.swift in Sources */,
+				7D21A7681B67DABC00CF9128 /* CityTests.swift in Sources */,
 				7D21A75E1B67CDD500CF9128 /* GeocoderMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
