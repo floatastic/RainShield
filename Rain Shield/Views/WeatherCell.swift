@@ -10,6 +10,9 @@ import UIKit
 
 class WeatherCell: UITableViewCell {
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var tempDayLabel: UILabel!
+    @IBOutlet weak var tempNightLabel: UILabel!
     
 }

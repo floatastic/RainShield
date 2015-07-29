@@ -67,9 +67,42 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mu4-iX-Imj">
-                                                    <rect key="frame" x="8" y="11" width="584" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mu4-iX-Imj" userLabel="Day">
+                                                    <rect key="frame" x="18" y="11" width="100" height="20.5"/>
                                                     <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="3M6-gj-2ik"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKb-Hw-boC" userLabel="TempNight">
+                                                    <rect key="frame" x="540" y="11" width="42" height="20.5"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="vhu-DR-UI3"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.18576738910000001" green="0.17735635080000001" blue="0.72180569559999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzw-RF-RRM" userLabel="TempDay">
+                                                    <rect key="frame" x="483" y="11" width="42" height="20.5"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="ecU-Vj-ZNw"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luN-be-CeE" userLabel="Weather">
+                                                    <rect key="frame" x="355" y="11" width="100" height="20.5"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="cwM-un-SNS"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -77,14 +110,23 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fKb-Hw-boC" secondAttribute="trailing" constant="10" id="0dK-Aa-FE7"/>
+                                                <constraint firstItem="Mu4-iX-Imj" firstAttribute="leading" secondItem="Z8S-Rl-ykM" secondAttribute="leadingMargin" constant="10" id="1G7-Se-dii"/>
+                                                <constraint firstItem="fKb-Hw-boC" firstAttribute="centerY" secondItem="Z8S-Rl-ykM" secondAttribute="centerY" id="43p-Tq-l9r"/>
                                                 <constraint firstItem="Mu4-iX-Imj" firstAttribute="centerY" secondItem="Z8S-Rl-ykM" secondAttribute="centerY" id="7ji-Em-z5J"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Mu4-iX-Imj" secondAttribute="trailing" id="QpN-v8-6hB"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="Mu4-iX-Imj" secondAttribute="leading" id="tB4-6d-uue"/>
+                                                <constraint firstItem="luN-be-CeE" firstAttribute="centerY" secondItem="xzw-RF-RRM" secondAttribute="centerY" id="JFD-LJ-22C"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="luN-be-CeE" secondAttribute="trailing" priority="999" constant="137" id="SzS-Xv-3MY"/>
+                                                <constraint firstItem="xzw-RF-RRM" firstAttribute="centerY" secondItem="fKb-Hw-boC" secondAttribute="centerY" id="h7J-cA-eOq"/>
+                                                <constraint firstItem="fKb-Hw-boC" firstAttribute="leading" secondItem="xzw-RF-RRM" secondAttribute="trailing" constant="15" id="pSk-hH-3ph"/>
+                                                <constraint firstItem="xzw-RF-RRM" firstAttribute="leading" secondItem="luN-be-CeE" secondAttribute="trailing" constant="28" id="qZ7-iH-A15"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <outlet property="label" destination="Mu4-iX-Imj" id="5LY-ew-t2n"/>
+                                            <outlet property="dayLabel" destination="Mu4-iX-Imj" id="uNu-ep-381"/>
+                                            <outlet property="tempDayLabel" destination="xzw-RF-RRM" id="OQa-YA-rQE"/>
+                                            <outlet property="tempNightLabel" destination="fKb-Hw-boC" id="Dkd-s8-WhO"/>
+                                            <outlet property="weatherLabel" destination="luN-be-CeE" id="kT4-8O-d4l"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

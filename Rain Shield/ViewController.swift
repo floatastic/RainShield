@@ -17,6 +17,7 @@ class ViewController: UIViewController, WeatherPresenterDelegate {
     
     var presenter: WeatherPresenter?
     var tableDataSource: WeatherTableDataSource?
+    var tableDelegate: WeatherTableDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,9 @@ class ViewController: UIViewController, WeatherPresenterDelegate {
         forecastLabel.hidden = true
         
         tableDataSource = WeatherTableDataSource()
+        tableDelegate = WeatherTableDelegate()
         tableView.dataSource = tableDataSource
+        tableView.delegate = tableDelegate
     }
     
     // MARK: WeatherPresenterDelegate

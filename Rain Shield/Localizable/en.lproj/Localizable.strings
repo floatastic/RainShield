@@ -15,4 +15,5 @@
 "rainshield.itWillRainLabel" = "It will rain today.\nBut hey, at least you know it.\nDon't forget an umbrella!\n\n☔";
 "rainshield.itWillNotRainLabel" = "It will not rain today. Yay!\n\n⛅";
 "rainshield.cityInfoLabel" = "Forecasting for %@";
-"rainshield.weatherTableSectionHeader" = "Forecast for next days";
+"rainshield.weatherTableSectionHeader" = "Week outlook";
+"rainshield.temperatureFormat" = "%.0f °";
