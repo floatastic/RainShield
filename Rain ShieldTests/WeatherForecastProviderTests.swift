@@ -17,6 +17,7 @@ class WeatherForecastProviderTests: XCTestCase {
         super.tearDown()
     }
     
+    //TODO: very general test. Mapping all fields to [ForecastItem] also should be tested.
     func test_shouldProvideCorrectForecastObject_givenValidResponse() {
         HTTPStubHelper().stubForecastRequest()
         let expectation = expectationWithDescription("WeatherForecast is provided")
@@ -26,14 +27,14 @@ class WeatherForecastProviderTests: XCTestCase {
             if let weatherForecast = weatherForecast,
                 let city = weatherForecast.city
                 
-                where weatherForecast.items.count == 41
-                && city.name == "Hoxton" {
+                where weatherForecast.items.count == 10
+                && city.name == "Shuzenji" {
                     
                 expectation.fulfill()
             }
         }
         
-        waitForExpectationsWithTimeout(0.1, handler: nil)
+        waitForExpectationsWithTimeout(0.2, handler: nil)
     }
     
 }

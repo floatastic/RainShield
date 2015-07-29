@@ -18,7 +18,7 @@ class WeatherURLBuilder: NSObject {
     private let AppID = "7d03cbb652c57f6fde3fa54083e613d6"
     private let scheme = "http"
     private let host = "api.openweathermap.org"
-    private let path = "/data/2.5/forecast/"
+    private let path = "/data/2.5/forecast/daily"
     private let latitudeParam = "lat"
     private let longitudeParam = "lon"
     private let appParamName = "APPID"

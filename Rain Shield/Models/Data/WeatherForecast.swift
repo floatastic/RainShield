@@ -34,26 +34,6 @@ struct WeatherForecast {
     
 }
 
-struct JSONKeys {
-    
-    static let list = "list"
-    
-    struct City {
-        static let key = "city"
-        static let name = "name"
-    }
-    
-    struct ForecastItem {
-        static let timestamp = "dt"
-        
-        struct Weather {
-            static let key = "weather"
-            static let id = "id"
-            static let icon = "icon"
-        }
-    }
-}
-
 class JSONTransformer {
     
     class func cityFromJSONDictionary(JSONDictionary: NSDictionary) -> City? {

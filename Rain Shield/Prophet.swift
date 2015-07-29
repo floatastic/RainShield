@@ -22,12 +22,7 @@ class Prophet: NSObject {
     }
     
     func isTodayRainy() -> Bool {
-        return forecastItemsForToday().filter({ $0.isWeatherCodeRain() }).count > 0
-    }
-    
-    func forecastItemsForToday() -> [ForecastItem] {
-        let endOfDayTimestamp = Int(DateHelper.endOfDay())
-        return forecast.items.filter({ $0.timestamp < endOfDayTimestamp })
+        return forecast.items.count > 0 ? forecast.items.first!.isWeatherCodeRain() : false
     }
     
 }
