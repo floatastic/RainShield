@@ -12,6 +12,7 @@ import CoreLocation
 class ViewController: UIViewController, LocationProviderDelegate {
 
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var forecastLabel: UILabel!
     
     var locationProvider: LocationProvider?
     var forecastProvider: WeatherForecastProvider?
@@ -23,6 +24,7 @@ class ViewController: UIViewController, LocationProviderDelegate {
         forecastProvider = WeatherForecastProvider.defaultProvider()
         
         cityLabel.text = NSLocalizedString("rainshield.gettingLocationLabel")
+        forecastLabel.hidden = true
     }
     
     func setupLocationProvider() {
@@ -42,17 +44,25 @@ class ViewController: UIViewController, LocationProviderDelegate {
         cityLabel.text = NSLocalizedString("rainshield.gettingForecastLabel")
         
         forecastProvider!.weatherForLocation(location) { (forecast, error) -> Void in
-            var newLabelText: String?
+            var forecastLabelText: String?
+            var cityLabelText: String?
             
             if let forecast = forecast {
-                newLabelText = self.statusLabelTextForWeatherForecast(forecast)
-                
+                forecastLabelText = self.statusLabelTextForWeatherForecast(forecast)
             } else {
-                newLabelText = NSLocalizedString("rainshield.unableToGetForecastLabel")
+                forecastLabelText = NSLocalizedString("rainshield.unableToGetForecastLabel")
+            }
+            
+            if let cityName = forecast?.city?.name {
+                cityLabelText = String(format: NSLocalizedString("rainshield.cityInfoLabel")!, cityName)
+            } else {
+                cityLabelText = NSLocalizedString("rainshield.unableToGetLocationLabel")
             }
             
             NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-                self.cityLabel.text = newLabelText
+                self.forecastLabel.hidden = false
+                self.forecastLabel.text = forecastLabelText
+                self.cityLabel.text = cityLabelText
             }
         }
     }

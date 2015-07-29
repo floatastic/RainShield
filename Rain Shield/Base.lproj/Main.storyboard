@@ -18,7 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xk-AS-qrx">
-                                <rect key="frame" x="279" y="28" width="42" height="21"/>
+                                <rect key="frame" x="279" y="48" width="42" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQc-fQ-2f2">
+                                <rect key="frame" x="279" y="110" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -29,11 +36,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5xk-AS-qrx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FDm-Pq-eO4"/>
-                            <constraint firstItem="5xk-AS-qrx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="VDv-lP-loB"/>
+                            <constraint firstItem="HQc-fQ-2f2" firstAttribute="top" secondItem="5xk-AS-qrx" secondAttribute="bottom" constant="41.5" id="OPo-bd-d18"/>
+                            <constraint firstItem="5xk-AS-qrx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="VDv-lP-loB"/>
+                            <constraint firstItem="HQc-fQ-2f2" firstAttribute="centerX" secondItem="5xk-AS-qrx" secondAttribute="centerX" id="qMM-bn-Gzx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cityLabel" destination="5xk-AS-qrx" id="0XC-wy-7B0"/>
+                        <outlet property="forecastLabel" destination="HQc-fQ-2f2" id="wTF-rf-vVs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

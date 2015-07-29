@@ -13,5 +13,6 @@
 "rainshield.gettingForecastLabel" = "Getting weather forecast...";
 "rainshield.unableToGetLocationLabel" = "Can't get current location :(";
 "rainshield.unableToGetForecastLabel" = "Can't get weather forecast :(\nTake an umbrella - better safe than sorry!";
-"rainshield.itWillRainLabel" = "It will rain today. But hey, at least you know it. Don't forget an umbrella!";
-"rainshield.itWillNotRainLabel" = "It will not rain today. Yay!";
+"rainshield.itWillRainLabel" = "It will rain today. But hey, at least you know it. Don't forget an umbrella!\n\n☔";
+"rainshield.itWillNotRainLabel" = "It will not rain today. Yay!\n\n⛅";
+"rainshield.cityInfoLabel" = "Forecasting for %@";
