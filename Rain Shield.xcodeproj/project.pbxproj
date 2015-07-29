@@ -25,6 +25,7 @@
 		7D21A75C1B67BE5900CF9128 /* LocationProviderDelegateTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A75B1B67BE5900CF9128 /* LocationProviderDelegateTester.swift */; };
 		7D21A7641B67D64600CF9128 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D21A7631B67D64600CF9128 /* AddressBook.framework */; };
 		7D21A7681B67DABC00CF9128 /* CityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D21A7671B67DABC00CF9128 /* CityTests.swift */; };
+		7D56C3A41B690AD2001D5C69 /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56C3A31B690AD2001D5C69 /* WeatherPresenter.swift */; };
 		7D76B1B61B6843F1006778DA /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76B1B51B6843F1006778DA /* City.swift */; };
 		7D76B1B81B684422006778DA /* ForecastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76B1B71B684422006778DA /* ForecastItem.swift */; };
 		7D76B1BA1B68484C006778DA /* WeatherForecastProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76B1B91B68484C006778DA /* WeatherForecastProviderTests.swift */; };
@@ -86,6 +87,7 @@
 		7D21A75B1B67BE5900CF9128 /* LocationProviderDelegateTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationProviderDelegateTester.swift; path = Helpers/LocationProviderDelegateTester.swift; sourceTree = "<group>"; };
 		7D21A7631B67D64600CF9128 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		7D21A7671B67DABC00CF9128 /* CityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTests.swift; sourceTree = "<group>"; };
+		7D56C3A31B690AD2001D5C69 /* WeatherPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
 		7D76B1B51B6843F1006778DA /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		7D76B1B71B684422006778DA /* ForecastItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastItem.swift; sourceTree = "<group>"; };
 		7D76B1B91B68484C006778DA /* WeatherForecastProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherForecastProviderTests.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				7DEF25F71B6807EA00BDC8C5 /* WeatherURLBuilder.swift */,
 				7DEF25F51B67FECB00BDC8C5 /* NetworkManager.swift */,
 				7D76B1C11B68D9FC006778DA /* Prophet.swift */,
+				7D56C3A31B690AD2001D5C69 /* WeatherPresenter.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 		7D21A7021B66C0DE00CF9128 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = kreftmichal;
 				TargetAttributes = {
@@ -480,6 +484,7 @@
 				7D76B1B81B684422006778DA /* ForecastItem.swift in Sources */,
 				7D76B1B61B6843F1006778DA /* City.swift in Sources */,
 				7D76B1C61B68E585006778DA /* DateHelper.swift in Sources */,
+				7D56C3A41B690AD2001D5C69 /* WeatherPresenter.swift in Sources */,
 				7D21A7101B66C0DE00CF9128 /* ViewController.swift in Sources */,
 				7DEF25F81B6807EA00BDC8C5 /* WeatherURLBuilder.swift in Sources */,
 				7D76B1C21B68D9FC006778DA /* Prophet.swift in Sources */,

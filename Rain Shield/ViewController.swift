@@ -7,84 +7,36 @@
 //
 
 import UIKit
-import CoreLocation
 
-class ViewController: UIViewController, LocationProviderDelegate {
+class ViewController: UIViewController, WeatherPresenterDelegate {
 
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     @IBOutlet weak var forecastLabel: UILabel!
     
-    var locationProvider: LocationProvider?
-    var forecastProvider: WeatherForecastProvider?
+    var presenter: WeatherPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupLocationProvider()
-        forecastProvider = WeatherForecastProvider.defaultProvider()
+        presenter = WeatherPresenter()
+        presenter!.delegate = self
         
-        cityLabel.text = NSLocalizedString("rainshield.gettingLocationLabel")
+        cityLabel.text = NSLocalizedString("rainshield.gettingForecastLabel")
         forecastLabel.hidden = true
     }
     
-    func setupLocationProvider() {
-        let provider = LocationProvider.defaultProvider()
-        provider.delegate = self
-        provider.updateLocation()
-        locationProvider = provider
-    }
+    // MARK: WeatherPresenterDelegate
     
-    deinit {
-        locationProvider?.stopMonitoring()
+    func weatherPresenter(presenter: WeatherPresenter, didUpdateWeatherPresentation weatherPresentation: WeatherPresentation) {
+        self.forecastLabel.hidden = false
+        self.forecastLabel.text = weatherPresentation.forecastInfo
+        self.cityLabel.text = weatherPresentation.cityInfo
+        self.activitySpinner.stopAnimating()
     }
 
-    // MARK: LocationProviderDelegate
-    
-    func locationProvider(locationProvider: LocationProvider, didUpdateLocation location: CLLocation) {
-        cityLabel.text = NSLocalizedString("rainshield.gettingForecastLabel")
-        
-        forecastProvider!.weatherForLocation(location) { (forecast, error) -> Void in
-            var forecastLabelText: String?
-            var cityLabelText: String?
-            
-            if let forecast = forecast {
-                forecastLabelText = self.statusLabelTextForWeatherForecast(forecast)
-            } else {
-                forecastLabelText = NSLocalizedString("rainshield.unableToGetForecastLabel")
-            }
-            
-            if let cityName = forecast?.city?.name {
-                cityLabelText = String(format: NSLocalizedString("rainshield.cityInfoLabel")!, cityName)
-            } else {
-                cityLabelText = NSLocalizedString("rainshield.unableToGetLocationLabel")
-            }
-            
-            NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-                self.forecastLabel.hidden = false
-                self.forecastLabel.text = forecastLabelText
-                self.cityLabel.text = cityLabelText
-                self.activitySpinner.stopAnimating()
-            }
-        }
-    }
-    
-    func locationProvider(locationProvider: LocationProvider, failedToUpdateWithError error: NSError) {
-        
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-            
-            if error.code == LocationProviderErrorCode.NoAuthorization.rawValue {
-                self.noLocalizationAccessAlert().show()
-            }
-        
-            self.cityLabel.text = NSLocalizedString("rainshield.unableToGetLocationLabel")
-            self.activitySpinner.stopAnimating()
-        }
-    }
-    
-    func statusLabelTextForWeatherForecast(forecast: WeatherForecast) -> String? {
-        return Prophet(forecast: forecast).isTodayRainy() ?
-            NSLocalizedString("rainshield.itWillRainLabel") : NSLocalizedString("rainshield.itWillNotRainLabel")
+    func weatherPresenterDidFailWithNoLocationAccess(presenter: WeatherPresenter) {
+        noLocalizationAccessAlert().show()
     }
     
     func noLocalizationAccessAlert() -> UIAlertView {
