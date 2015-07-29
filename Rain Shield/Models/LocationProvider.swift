@@ -13,7 +13,7 @@ import CoreLocation
 LocationProvider guarantees to call one of it's delegate method after updateLocation() was called.
 */
 protocol LocationProviderDelegate: class {
-    func locationProvider(locationProvider: LocationProvider, didUpdateCity city: City)
+    func locationProvider(locationProvider: LocationProvider, didUpdateLocation location: CLLocation)
     
     /**
     Called in case of failure at various steps whike trying to get location.
@@ -27,22 +27,20 @@ protocol LocationProviderDelegate: class {
 
 enum LocationProviderErrorCode: Int {
     case NoAuthorization
-    case NoCity
+    case NoLocation
 }
 
 class LocationProvider: NSObject, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager
-    var geocoder: CLGeocoder
     weak var delegate: LocationProviderDelegate?
     
     class func defaultProvider() -> LocationProvider {
-        return LocationProvider(locationManager: CLLocationManager(), geocoder: CLGeocoder())
+        return LocationProvider(locationManager: CLLocationManager())
     }
     
-    init(locationManager: CLLocationManager, geocoder: CLGeocoder) {
+    init(locationManager: CLLocationManager) {
         self.locationManager = locationManager
-        self.geocoder = geocoder
         
         locationManager.distanceFilter = 100.0
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -77,7 +75,7 @@ class LocationProvider: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if (locations.count > 0) {
-            processLocationUpdate(locations.last!)
+            self.delegate?.locationProvider(self, didUpdateLocation: locations.last!)
         }
         
         stopMonitoring()
@@ -109,18 +107,4 @@ private extension LocationProvider {
         }
     }
     
-    func processLocationUpdate(newLocation: CLLocation) {
-        geocoder.reverseGeocodeLocation(newLocation) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-            
-            if let placemark = placemarks?.first,
-                let city = City(placemark: placemark) {
-                    //TODO update tests for empty city case
-                    self.delegate?.locationProvider(self, didUpdateCity: city)
-                    
-            } else {
-                let error = NSError(domain: DefaultErrorDomain, code: LocationProviderErrorCode.NoCity.rawValue, userInfo: nil)
-                self.delegate?.locationProvider(self, failedToUpdateWithError: error)
-            }
-        }
-    }
 }
