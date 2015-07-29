@@ -31,6 +31,10 @@ class ViewController: UIViewController, LocationProviderDelegate {
         provider.updateLocation()
         locationProvider = provider
     }
+    
+    deinit {
+        locationProvider?.stopMonitoring()
+    }
 
     // MARK: LocationProviderDelegate
     
@@ -38,8 +42,17 @@ class ViewController: UIViewController, LocationProviderDelegate {
         cityLabel.text = NSLocalizedString("rainshield.gettingForecastLabel")
         
         forecastProvider!.weatherForLocation(location) { (forecast, error) -> Void in
+            var newLabelText: String?
+            
             if let forecast = forecast {
-                NSLog("%@", String(forecast))
+                newLabelText = self.statusLabelTextForWeatherForecast(forecast)
+                
+            } else {
+                newLabelText = NSLocalizedString("rainshield.unableToGetForecastLabel")
+            }
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+                self.cityLabel.text = newLabelText
             }
         }
     }
@@ -49,20 +62,24 @@ class ViewController: UIViewController, LocationProviderDelegate {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
             
             if error.code == LocationProviderErrorCode.NoAuthorization.rawValue {
-                
-                UIAlertView(title: NSLocalizedString("rainshield.noLocaliztionAccessError.title"),
-                    message: NSLocalizedString("rainshield.noLocaliztionAccessError.message"),
-                    delegate: nil,
-                    cancelButtonTitle: NSLocalizedString("rainshield.noLocaliztionAccessError.button")
-                    ).show()
+                self.noLocalizationAccessAlert().show()
             }
         
             self.cityLabel.text = NSLocalizedString("rainshield.unableToGetLocationLabel")
         }
     }
     
-    deinit {
-        locationProvider?.stopMonitoring()
+    func statusLabelTextForWeatherForecast(forecast: WeatherForecast) -> String? {
+        return Prophet(forecast: forecast).isTodayRainy() ?
+            NSLocalizedString("rainshield.itWillRainLabel") : NSLocalizedString("rainshield.itWillNotRainLabel")
+    }
+    
+    func noLocalizationAccessAlert() -> UIAlertView {
+        return UIAlertView(title: NSLocalizedString("rainshield.noLocaliztionAccessError.title"),
+            message: NSLocalizedString("rainshield.noLocaliztionAccessError.message"),
+            delegate: nil,
+            cancelButtonTitle: NSLocalizedString("rainshield.noLocaliztionAccessError.button")
+        )
     }
 }
 
