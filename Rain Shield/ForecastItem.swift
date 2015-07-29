@@ -8,10 +8,21 @@
 
 import Foundation
 
+enum WeatherCode :Int {
+    case Rain = 500
+    case Snow = 600
+}
+
 struct ForecastItem {
     let timestamp: Int?
-    let id: Int?
+    let weatherCodeRaw: Int?
     let icon: String?
+    
+    init(timestamp: Int?, weatherCodeRaw: Int?, icon: String?) {
+        self.timestamp = timestamp
+        self.weatherCodeRaw = weatherCodeRaw
+        self.icon = icon
+    }
     
     init(JSONDictionary: NSDictionary) {
         self.timestamp = JSONDictionary[JSONKeys.ForecastItem.timestamp] as? Int
@@ -19,14 +30,19 @@ struct ForecastItem {
         if let weatherArray = JSONDictionary[JSONKeys.ForecastItem.Weather.key] as? [NSDictionary],
             let weatherDictionary = weatherArray.first {
                 
-                self.id = weatherDictionary[JSONKeys.ForecastItem.Weather.id] as? Int
+                self.weatherCodeRaw = weatherDictionary[JSONKeys.ForecastItem.Weather.id] as? Int
                 self.icon = weatherDictionary[JSONKeys.ForecastItem.Weather.icon] as? String
                 
         } else {
             
-            self.id = nil
+            self.weatherCodeRaw = nil
             self.icon = nil
             
         }
+    }
+    
+    func isWeatherCodeRain() -> Bool {
+        return weatherCodeRaw == nil ? false :
+            weatherCodeRaw! >= WeatherCode.Rain.rawValue && weatherCodeRaw! < WeatherCode.Snow.rawValue
     }
 }

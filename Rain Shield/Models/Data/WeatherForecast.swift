@@ -13,6 +13,11 @@ struct WeatherForecast {
     let city: City?
     let items: [ForecastItem]
     
+    init(city: City?, items: [ForecastItem] = [ForecastItem]()) {
+        self.city = city
+        self.items = items
+    }
+    
     init?(JSONData: NSData) {
         do {
             if let JSONDictionary = try NSJSONSerialization.JSONObjectWithData(JSONData, options: .MutableContainers) as? NSDictionary {

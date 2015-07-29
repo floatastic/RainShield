@@ -30,6 +30,10 @@
 		7D76B1BA1B68484C006778DA /* WeatherForecastProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76B1B91B68484C006778DA /* WeatherForecastProviderTests.swift */; };
 		7D76B1BC1B684940006778DA /* WeatherForecastResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D76B1BB1B684940006778DA /* WeatherForecastResponse.json */; };
 		7D76B1C01B68C650006778DA /* HTTPStubHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76B1BF1B68C650006778DA /* HTTPStubHelper.swift */; };
+		7D76B1C21B68D9FC006778DA /* Prophet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76B1C11B68D9FC006778DA /* Prophet.swift */; };
+		7D76B1C41B68E522006778DA /* ProphetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76B1C31B68E522006778DA /* ProphetTests.swift */; };
+		7D76B1C61B68E585006778DA /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76B1C51B68E585006778DA /* DateHelper.swift */; };
+		7D76B1C81B68EC29006778DA /* ForecastItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76B1C71B68EC29006778DA /* ForecastItemTests.swift */; };
 		7DEF25ED1B67E93D00BDC8C5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DEF25EC1B67E93D00BDC8C5 /* MapKit.framework */; };
 		7DEF25F11B67FCE500BDC8C5 /* WeatherForecastProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF25F01B67FCE500BDC8C5 /* WeatherForecastProvider.swift */; };
 		7DEF25F31B67FD5300BDC8C5 /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEF25F21B67FD5300BDC8C5 /* WeatherForecast.swift */; };
@@ -88,6 +92,10 @@
 		7D76B1BB1B684940006778DA /* WeatherForecastResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = WeatherForecastResponse.json; path = HTTPResponses/WeatherForecastResponse.json; sourceTree = "<group>"; };
 		7D76B1BE1B68C500006778DA /* Rain_Shield-Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rain_Shield-Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		7D76B1BF1B68C650006778DA /* HTTPStubHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStubHelper.swift; sourceTree = "<group>"; };
+		7D76B1C11B68D9FC006778DA /* Prophet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prophet.swift; sourceTree = "<group>"; };
+		7D76B1C31B68E522006778DA /* ProphetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProphetTests.swift; sourceTree = "<group>"; };
+		7D76B1C51B68E585006778DA /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		7D76B1C71B68EC29006778DA /* ForecastItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastItemTests.swift; sourceTree = "<group>"; };
 		7DEF25EC1B67E93D00BDC8C5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7DEF25F01B67FCE500BDC8C5 /* WeatherForecastProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherForecastProvider.swift; path = Models/WeatherForecastProvider.swift; sourceTree = "<group>"; };
 		7DEF25F21B67FD5300BDC8C5 /* WeatherForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherForecast.swift; path = Models/Data/WeatherForecast.swift; sourceTree = "<group>"; };
@@ -188,7 +196,9 @@
 				7D21A7671B67DABC00CF9128 /* CityTests.swift */,
 				7DEF25F91B68140700BDC8C5 /* WeatherURLBuilderTests.swift */,
 				7D76B1B91B68484C006778DA /* WeatherForecastProviderTests.swift */,
+				7D76B1C31B68E522006778DA /* ProphetTests.swift */,
 				7D76B1BE1B68C500006778DA /* Rain_Shield-Tests-Bridging-Header.h */,
+				7D76B1C71B68EC29006778DA /* ForecastItemTests.swift */,
 			);
 			path = "Rain ShieldTests";
 			sourceTree = "<group>";
@@ -210,6 +220,7 @@
 				7DEF25F01B67FCE500BDC8C5 /* WeatherForecastProvider.swift */,
 				7DEF25F71B6807EA00BDC8C5 /* WeatherURLBuilder.swift */,
 				7DEF25F51B67FECB00BDC8C5 /* NetworkManager.swift */,
+				7D76B1C11B68D9FC006778DA /* Prophet.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -228,6 +239,7 @@
 			children = (
 				7D21A7501B6781BC00CF9128 /* LocalizationHelper.swift */,
 				7D21A7521B679C6000CF9128 /* ErrorHelper.swift */,
+				7D76B1C51B68E585006778DA /* DateHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -467,8 +479,10 @@
 				7D21A7531B679C6000CF9128 /* ErrorHelper.swift in Sources */,
 				7D76B1B81B684422006778DA /* ForecastItem.swift in Sources */,
 				7D76B1B61B6843F1006778DA /* City.swift in Sources */,
+				7D76B1C61B68E585006778DA /* DateHelper.swift in Sources */,
 				7D21A7101B66C0DE00CF9128 /* ViewController.swift in Sources */,
 				7DEF25F81B6807EA00BDC8C5 /* WeatherURLBuilder.swift in Sources */,
+				7D76B1C21B68D9FC006778DA /* Prophet.swift in Sources */,
 				7D21A70E1B66C0DE00CF9128 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +493,8 @@
 			files = (
 				7D21A75C1B67BE5900CF9128 /* LocationProviderDelegateTester.swift in Sources */,
 				7D21A7551B67B25000CF9128 /* LocationProviderTests.swift in Sources */,
+				7D76B1C81B68EC29006778DA /* ForecastItemTests.swift in Sources */,
+				7D76B1C41B68E522006778DA /* ProphetTests.swift in Sources */,
 				7D76B1BA1B68484C006778DA /* WeatherForecastProviderTests.swift in Sources */,
 				7D21A7581B67B2DF00CF9128 /* LocationManagerMock.swift in Sources */,
 				7D76B1C01B68C650006778DA /* HTTPStubHelper.swift in Sources */,
