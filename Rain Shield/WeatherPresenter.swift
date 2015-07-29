@@ -12,6 +12,13 @@ import CoreLocation
 struct WeatherPresentation {
     let cityInfo: String?
     let forecastInfo: String?
+    let forecastItems: [ForecastItem]
+    
+    init(cityInfo: String?, forecastInfo: String?, forecastItems: [ForecastItem] = [ForecastItem]()) {
+        self.cityInfo = cityInfo
+        self.forecastInfo = forecastInfo
+        self.forecastItems = forecastItems
+    }
 }
 
 /**
@@ -52,9 +59,11 @@ class WeatherPresenter: NSObject, LocationProviderDelegate {
         forecastProvider!.weatherForLocation(location) { (forecast, error) -> Void in
             var forecastInfo: String?
             var cityInfo: String?
+            var forecastItems = [ForecastItem]()
             
             if let forecast = forecast {
                 forecastInfo = self.statusLabelTextForWeatherForecast(forecast)
+                forecastItems = forecast.items
             } else {
                 forecastInfo = NSLocalizedString("rainshield.unableToGetForecastLabel")
             }
@@ -65,7 +74,7 @@ class WeatherPresenter: NSObject, LocationProviderDelegate {
                 cityInfo = NSLocalizedString("rainshield.unableToGetLocationLabel")
             }
             
-            let presentation = WeatherPresentation(cityInfo: cityInfo, forecastInfo: forecastInfo)
+            let presentation = WeatherPresentation(cityInfo: cityInfo, forecastInfo: forecastInfo, forecastItems: forecastItems)
             
             NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
                 self.delegate?.weatherPresenter(self, didUpdateWeatherPresentation: presentation)

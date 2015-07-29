@@ -13,8 +13,10 @@ class ViewController: UIViewController, WeatherPresenterDelegate {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     @IBOutlet weak var forecastLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var presenter: WeatherPresenter?
+    var tableDataSource: WeatherTableDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +26,21 @@ class ViewController: UIViewController, WeatherPresenterDelegate {
         
         cityLabel.text = NSLocalizedString("rainshield.gettingForecastLabel")
         forecastLabel.hidden = true
+        
+        tableDataSource = WeatherTableDataSource()
+        tableView.dataSource = tableDataSource
     }
     
     // MARK: WeatherPresenterDelegate
     
     func weatherPresenter(presenter: WeatherPresenter, didUpdateWeatherPresentation weatherPresentation: WeatherPresentation) {
-        self.forecastLabel.hidden = false
-        self.forecastLabel.text = weatherPresentation.forecastInfo
-        self.cityLabel.text = weatherPresentation.cityInfo
-        self.activitySpinner.stopAnimating()
+        forecastLabel.hidden = false
+        forecastLabel.text = weatherPresentation.forecastInfo
+        cityLabel.text = weatherPresentation.cityInfo
+        activitySpinner.stopAnimating()
+        
+        tableDataSource!.forecastItems = weatherPresentation.forecastItems
+        tableView.reloadData()
     }
 
     func weatherPresenterDidFailWithNoLocationAccess(presenter: WeatherPresenter) {
