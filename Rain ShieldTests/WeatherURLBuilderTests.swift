@@ -33,7 +33,7 @@ class WeatherURLBuilderTests: XCTestCase {
         URLBuilder.location = location
         
         let URL = try! URLBuilder.build()
-        XCTAssertEqual(URL.absoluteString, "http://api.openweathermap.org/data/2.5/forecast/daily?lat=20.0201&lon=-30.0301&APPID=7d03cbb652c57f6fde3fa54083e613d6")
+        XCTAssertEqual(URL.absoluteString, "http://api.openweathermap.org/data/2.5/forecast/daily?lat=20.0201&lon=-30.0301&APPID=7d03cbb652c57f6fde3fa54083e613d6&units=metric")
     }
 
 }

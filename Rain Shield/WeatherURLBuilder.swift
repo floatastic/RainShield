@@ -22,6 +22,7 @@ class WeatherURLBuilder: NSObject {
     private let latitudeParam = "lat"
     private let longitudeParam = "lon"
     private let appParamName = "APPID"
+    private let defaultUnitsParam = "&units=metric"
     
     var location: CLLocation?
     
@@ -31,6 +32,7 @@ class WeatherURLBuilder: NSObject {
     func build() throws -> NSURL {
         var query = try locationQueryPart()
         query += "&" + appParamName + "=" + AppID
+        query += defaultUnitsParam
         
         let components = NSURLComponents()
         components.scheme = scheme
