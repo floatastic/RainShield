@@ -12,6 +12,7 @@ import CoreLocation
 class ViewController: UIViewController, LocationProviderDelegate {
 
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     @IBOutlet weak var forecastLabel: UILabel!
     
     var locationProvider: LocationProvider?
@@ -63,6 +64,7 @@ class ViewController: UIViewController, LocationProviderDelegate {
                 self.forecastLabel.hidden = false
                 self.forecastLabel.text = forecastLabelText
                 self.cityLabel.text = cityLabelText
+                self.activitySpinner.stopAnimating()
             }
         }
     }
@@ -76,6 +78,7 @@ class ViewController: UIViewController, LocationProviderDelegate {
             }
         
             self.cityLabel.text = NSLocalizedString("rainshield.unableToGetLocationLabel")
+            self.activitySpinner.stopAnimating()
         }
     }
     

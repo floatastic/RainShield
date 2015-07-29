@@ -20,6 +20,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xk-AS-qrx">
                                 <rect key="frame" x="279" y="48" width="42" height="20.5"/>
                                 <animations/>
+                                <accessibility key="accessibilityConfiguration" label="city"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -27,10 +28,16 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQc-fQ-2f2">
                                 <rect key="frame" x="279" y="110" width="42" height="21"/>
                                 <animations/>
+                                <accessibility key="accessibilityConfiguration" label="forecast"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="p4O-ss-osb">
+                                <rect key="frame" x="290" y="110" width="20" height="20"/>
+                                <animations/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -38,10 +45,13 @@
                             <constraint firstItem="5xk-AS-qrx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FDm-Pq-eO4"/>
                             <constraint firstItem="HQc-fQ-2f2" firstAttribute="top" secondItem="5xk-AS-qrx" secondAttribute="bottom" constant="41.5" id="OPo-bd-d18"/>
                             <constraint firstItem="5xk-AS-qrx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="VDv-lP-loB"/>
+                            <constraint firstItem="p4O-ss-osb" firstAttribute="centerX" secondItem="HQc-fQ-2f2" secondAttribute="centerX" id="dR6-D8-agv"/>
+                            <constraint firstItem="p4O-ss-osb" firstAttribute="centerY" secondItem="HQc-fQ-2f2" secondAttribute="centerY" id="lsP-fC-LwJ"/>
                             <constraint firstItem="HQc-fQ-2f2" firstAttribute="centerX" secondItem="5xk-AS-qrx" secondAttribute="centerX" id="qMM-bn-Gzx"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activitySpinner" destination="p4O-ss-osb" id="1oj-Cj-hCf"/>
                         <outlet property="cityLabel" destination="5xk-AS-qrx" id="0XC-wy-7B0"/>
                         <outlet property="forecastLabel" destination="HQc-fQ-2f2" id="wTF-rf-vVs"/>
                     </connections>
