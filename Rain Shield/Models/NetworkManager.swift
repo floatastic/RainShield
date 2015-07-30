@@ -7,14 +7,20 @@
 //
 
 import Foundation
+import OHHTTPStubs
 
 class NetworkManager: NSObject {
     
     static let defaultManager = NetworkManager()
     
+    override init() {
+        super.init()
+        
+        stubRequestsForTesting()
+    }
+    
     func addRequest(request: NSURLRequest, completion: (NSData?, NSURLResponse?, NSError?) -> Void) {
         let task = defaultSession().dataTaskWithRequest(request, completionHandler: completion)
-        task?.resume()
         task.resume()
     }
     
@@ -31,4 +37,11 @@ private extension NetworkManager {
         return NSURLSession.sharedSession()
     }
     
+    func stubRequestsForTesting() {
+        guard NSProcessInfo.processInfo().environment["USE_HTTPSTUBS"] != nil else {
+            return
+        }
+        
+        HTTPStubHelper().stubForecastRequest()
+    }
 }

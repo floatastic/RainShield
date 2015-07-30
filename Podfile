@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-link_with 'Rain ShieldTests'
+link_with 'Rain Shield', 'Rain ShieldTests'
 
 pod 'OHHTTPStubs', '4.1.0'
 

@@ -18,7 +18,9 @@ class Rain_ShieldUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        let app = XCUIApplication()
+        app.launchArguments = ["USE_HTTPSTUBS"]
+        app.launch()
     }
     
     override func tearDown() {
@@ -27,6 +29,10 @@ class Rain_ShieldUITests: XCTestCase {
     }
     
     func testExample() {
+        let label = XCUIApplication().tables.staticTexts["forecast"]
+        let existPredicate = NSPredicate(format: "exists == 1")
+        expectationForPredicate(existPredicate, evaluatedWithObject: label, handler: nil)
+        waitForExpectationsWithTimeout(5.0, handler: nil)
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
