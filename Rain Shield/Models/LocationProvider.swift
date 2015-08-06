@@ -33,6 +33,7 @@ enum LocationProviderErrorCode: Int {
 class LocationProvider: NSObject, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager
+    var locationUpdated = false
     weak var delegate: LocationProviderDelegate?
     
     class func defaultProvider() -> LocationProvider {
@@ -74,8 +75,9 @@ class LocationProvider: NSObject, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if (locations.count > 0) {
+        if (locations.count > 0 && !locationUpdated) {
             self.delegate?.locationProvider(self, didUpdateLocation: locations.last!)
+            locationUpdated = true
         }
         
         stopMonitoring()

@@ -1,0 +1,12 @@
+{
+  "quiet": false,
+  "port": "1337",
+  "latency": 50,
+  "logRequestHeaders": false,
+  "webServices": {
+    "openweathermap/data/2.5/forecast/daily": {
+      "verbs": ["get"],
+      "mockFile": "daily_forecast_london.json"
+    }
+  }
+}

@@ -14,11 +14,9 @@ class NetworkManager: NSObject {
     
     func addRequest(request: NSURLRequest, completion: (NSData?, NSURLResponse?, NSError?) -> Void) {
         let task = defaultSession().dataTaskWithRequest(request, completionHandler: completion)
-        task?.resume()
         task.resume()
     }
     
-    //TODO call in view dealloc or app delegate
     func cancelAllTasks() {
         defaultSession().invalidateAndCancel()
     }
