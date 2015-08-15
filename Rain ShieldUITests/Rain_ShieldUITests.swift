@@ -20,13 +20,16 @@ class Rain_ShieldUITests: XCTestCase {
     }
     
     func test_shouldDisplayCellsWithWeatherInformation() {
-        let cell = XCUIApplication().tables.childrenMatchingType(.Cell).elementBoundByIndex(0)
-        let existPredicate = NSPredicate(format: "exists == 1")
-        expectationForPredicate(existPredicate, evaluatedWithObject: cell, handler: nil)
+        cellExistsExpectation()
         waitForExpectationsWithTimeout(5.0, handler: nil)
         
         XCTAssert(XCUIApplication().tables.count == 1)
         XCTAssert(XCUIApplication().tables.elementBoundByIndex(0).cells.count == 7)
     }
     
+    func cellExistsExpectation() -> XCTestExpectation {
+        let cell = XCUIApplication().tables.childrenMatchingType(.Cell).elementBoundByIndex(0)
+        let existPredicate = NSPredicate(format: "exists == 1")
+        return expectationForPredicate(existPredicate, evaluatedWithObject: cell, handler: nil)
+    }
 }
